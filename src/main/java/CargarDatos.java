@@ -61,18 +61,18 @@ public class CargarDatos {
         empleado11.setDepartamento(departamento3);
         empleado12.setDepartamento(departamento3);
 
-        DatosEmpleado datosEmpleado1 = new DatosEmpleado("A", 20000, empleado1);
-        DatosEmpleado datosEmpleado2 = new DatosEmpleado("B", 20000, empleado2);
+        DatosEmpleado datosEmpleado1 = new DatosEmpleado("A", 10000, empleado1);
+        DatosEmpleado datosEmpleado2 = new DatosEmpleado("B", 15000, empleado2);
         DatosEmpleado datosEmpleado3 = new DatosEmpleado("C", 20000, empleado3);
-        DatosEmpleado datosEmpleado4 = new DatosEmpleado("D", 20000, empleado4);
-        DatosEmpleado datosEmpleado5 = new DatosEmpleado("E", 20000, empleado5);
-        DatosEmpleado datosEmpleado6 = new DatosEmpleado("F", 20000, empleado6);
-        DatosEmpleado datosEmpleado7 = new DatosEmpleado("G", 20000, empleado7);
-        DatosEmpleado datosEmpleado8 = new DatosEmpleado("H", 20000, empleado8);
-        DatosEmpleado datosEmpleado9 = new DatosEmpleado("I", 20000, empleado9);
-        DatosEmpleado datosEmpleado10 = new DatosEmpleado("J", 20000, empleado10);
-        DatosEmpleado datosEmpleado11 = new DatosEmpleado("K", 20000, empleado11);
-        DatosEmpleado datosEmpleado12 = new DatosEmpleado("L", 20000, empleado12);
+        DatosEmpleado datosEmpleado4 = new DatosEmpleado("D", 25000, empleado4);
+        DatosEmpleado datosEmpleado5 = new DatosEmpleado("E", 30000, empleado5);
+        DatosEmpleado datosEmpleado6 = new DatosEmpleado("F", 35000, empleado6);
+        DatosEmpleado datosEmpleado7 = new DatosEmpleado("G", 40000, empleado7);
+        DatosEmpleado datosEmpleado8 = new DatosEmpleado("H", 45000, empleado8);
+        DatosEmpleado datosEmpleado9 = new DatosEmpleado("I", 50000, empleado9);
+        DatosEmpleado datosEmpleado10 = new DatosEmpleado("J", 55000, empleado10);
+        DatosEmpleado datosEmpleado11 = new DatosEmpleado("K", 60000, empleado11);
+        DatosEmpleado datosEmpleado12 = new DatosEmpleado("L", 65000, empleado12);
 
 
         empleado1.setDatosEmpleado(datosEmpleado1);

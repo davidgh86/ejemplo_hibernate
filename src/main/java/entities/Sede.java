@@ -42,8 +42,6 @@ public class Sede {
     this.departamentos = departamentos;
   }
 
-
-
   public Sede(){}
 
   public Sede(String nombreSede) {
@@ -72,5 +70,13 @@ public class Sede {
 
   public void setProyectos(Set<Proyecto> proyectos) {
     this.proyectos = proyectos;
+  }
+
+  @Override
+  public String toString() {
+    return "Sede{" +
+            "idSede=" + getIdSede() +
+            ", nombreSede='" + getNombreSede() +
+            '}';
   }
 }

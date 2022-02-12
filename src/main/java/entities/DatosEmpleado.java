@@ -64,10 +64,9 @@ public class DatosEmpleado {
     @Override
     public String toString() {
         return "DatosEmpleado{" +
-                "dni='" + dni + '\'' +
-                ", categoria='" + categoria + '\'' +
-                ", sueldoBrutoAnual=" + sueldoBrutoAnual +
-                ", empleado=" + empleado +
+                "dni='" + getDni() + '\'' +
+                ", categoria='" + getCategoria() + '\'' +
+                ", sueldoBrutoAnual=" + getSueldoBrutoAnual() +
                 '}';
     }
 }

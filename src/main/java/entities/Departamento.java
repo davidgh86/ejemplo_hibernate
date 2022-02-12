@@ -18,7 +18,7 @@ public class Departamento {
 	private int idDpto;
 
     @Column(name="nom_dpto", columnDefinition="CHAR(32)")
-	private String nomDpto;
+	private String nombreDepartamento;
 
    	@ManyToOne
 	@JoinColumn(name = "id_sede")
@@ -30,8 +30,8 @@ public class Departamento {
 	public Departamento() {
 	}
 
-	public Departamento(String nomDpto, Sede sede) {
-		this.nomDpto = nomDpto;
+	public Departamento(String nombreDepartamento, Sede sede) {
+		this.nombreDepartamento = nombreDepartamento;
 		this.sede = sede;
 	}
 
@@ -43,12 +43,12 @@ public class Departamento {
         this.idDpto = idDpto;
     }
 
-    public String getNomDpto() {
-        return nomDpto;
+    public String getNombreDepartamento() {
+        return nombreDepartamento;
     }
 
-    public void setNomDpto(String nomDpto) {
-        this.nomDpto = nomDpto;
+    public void setNombreDepartamento(String nombreDepartamento) {
+        this.nombreDepartamento = nombreDepartamento;
     }
 
     public Sede getSede() {
@@ -66,50 +66,12 @@ public class Departamento {
     public void setEmpleados(Set<Empleado> empleados) {
         this.empleados = empleados;
     }
-//
-//	public int getIdDpto() {
-//		return idDpto;
-//	}
-//
-//	public void setIdDpto(int idDpto) {
-//		this.idDpto = idDpto;
-//	}
-//
-//	public String getNomDpto() {
-//		return nomDpto;
-//	}
-//
-//	public void setNomDpto(String nomDpto) {
-//		this.nomDpto = nomDpto;
-//	}
-//
-//	public Sede getSede() {
-//		return sede;
-//	}
-//
-//	public void setSede(Sede sede) {
-//		this.sede = sede;
-//	}
-//
-////	public Set<Empleado> getEmpleados() {
-////		return empleados;
-////	}
-////
-////	public void setEmpleados(Set<Empleado> empleados) {
-////		this.empleados = empleados;
-////	}
-////	public void AddEmpleado(Empleado e) {
-////		this.empleados.add(e);
-////	}
-
 
     @Override
     public String toString() {
         return "Departamento{" +
-                "idDpto=" + idDpto +
-                ", nomDpto='" + nomDpto + '\'' +
-                ", sede=" + sede +
-                ", empleados=" + empleados +
+                "idDpto=" + getIdDpto() +
+                ", nomDpto='" + getNombreDepartamento() +
                 '}';
     }
 }

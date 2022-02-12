@@ -63,10 +63,9 @@ public class Empleado {
 	@Override
 	public String toString() {
 		return "Empleado{" +
-				"dni='" + dni + '\'' +
-				", nombreEmpleado='" + nombreEmpleado + '\'' +
-				", departamento=" + departamento +
-				", datosEmpleado=" + datosEmpleado +
+				"dni='" + getDni() + '\'' +
+				", nombreEmpleado='" + getNombreEmpleado() + '\'' +
+				", datosEmpleado=" + getDatosEmpleado() +
 				'}';
 	}
 }

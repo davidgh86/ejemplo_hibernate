@@ -86,11 +86,10 @@ public class Proyecto {
 	@Override
 	public String toString() {
 		return "Proyecto{" +
-				"id=" + id +
-				", fechaInicio=" + fechaInicio +
-				", fechaFin=" + fechaFin +
-				", nombreProyecto='" + nombreProyecto + '\'' +
-				", sedes=" + sedes +
+				"id=" + getId() +
+				", fechaInicio=" + getFechaInicio() +
+				", fechaFin=" + getFechaFin() +
+				", nombreProyecto='" + getNombreProyecto() +
 				'}';
 	}
 }
