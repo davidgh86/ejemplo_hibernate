@@ -8,21 +8,21 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.HashSet;
 
-public class CargarDatos {
+public class CargadorDatos {
 
-    public static void main(String[] args) throws ParseException {
+    Session session;
 
-        Session session = HibernateUtil.buildSession();
-
-        saveDataSede(session, "sede1", "10000000");
-        saveDataSede(session, "sede2", "20000000");
-
-        session.getTransaction().commit();
-        session.close();
-
+    CargadorDatos(Session session){
+        this.session = session;
     }
 
-    private static void saveDataSede(Session session, String nombreSede, String prefixDNI) throws ParseException {
+    public void cargarDatos() throws ParseException {
+
+        saveDataSede("sede1", "10000000");
+        saveDataSede("sede2", "20000000");
+    }
+
+    private void saveDataSede(String nombreSede, String prefixDNI) throws ParseException {
         Sede sede1 = new Sede(nombreSede);
         Proyecto proyecto1 = new Proyecto(toDate("2020-01-11"), toDate("2020-02-12"), "proyecto1"+nombreSede, Collections.singleton(sede1));
         Proyecto proyecto2 = new Proyecto(toDate("2020-01-12"), toDate("2020-03-12"), "proyecto2"+nombreSede, Collections.singleton(sede1));
@@ -97,7 +97,7 @@ public class CargarDatos {
         session.save(sede1);
     }
 
-    public static Date toDate(String s) throws ParseException {
+    public Date toDate(String s) throws ParseException {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.parse(s);

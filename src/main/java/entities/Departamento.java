@@ -15,7 +15,7 @@ public class Departamento {
     @Column(name="id_dpto", columnDefinition="INT(11)")
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "departamento_sequence")
     @GenericGenerator(name = "departamento_sequence", strategy = "native")
-	private int idDpto;
+	private int idDepartamento;
 
     @Column(name="nom_dpto", columnDefinition="CHAR(32)")
 	private String nombreDepartamento;
@@ -35,12 +35,12 @@ public class Departamento {
 		this.sede = sede;
 	}
 
-    public int getIdDpto() {
-        return idDpto;
+    public int getIdDepartamento() {
+        return idDepartamento;
     }
 
-    public void setIdDpto(int idDpto) {
-        this.idDpto = idDpto;
+    public void setIdDepartamento(int idDepartamento) {
+        this.idDepartamento = idDepartamento;
     }
 
     public String getNombreDepartamento() {
@@ -70,7 +70,7 @@ public class Departamento {
     @Override
     public String toString() {
         return "Departamento{" +
-                "idDpto=" + getIdDpto() +
+                "idDepartamento=" + getIdDepartamento() +
                 ", nomDpto='" + getNombreDepartamento() +
                 '}';
     }
