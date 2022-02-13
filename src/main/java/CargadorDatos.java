@@ -95,6 +95,7 @@ public class CargadorDatos {
         sede1.setDepartamentos(new HashSet<>(Arrays.asList(departamento1, departamento2, departamento3)));
 
         session.save(sede1);
+        session.getTransaction().commit();
     }
 
     public Date toDate(String s) throws ParseException {
