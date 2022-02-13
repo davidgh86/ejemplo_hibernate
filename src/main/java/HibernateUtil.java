@@ -31,6 +31,13 @@ public class HibernateUtil {
 		return instance;
 	}
 
+	public static Session getSession(){
+		if (instance == null) {
+			startSession();
+		}
+		return instance.session;
+	}
+
 	public static void commit(){
 		if (instance != null) {
 			instance.session.getTransaction().commit();

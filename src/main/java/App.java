@@ -5,19 +5,13 @@ import java.text.ParseException;
 public class App {
     public static void main(String[] args) throws ParseException {
 
-        Session session = HibernateUtil.buildSession();
+        CargadorDatos.cargarDatos();
 
-        CargadorDatos cargadorDatos = new CargadorDatos(session);
-        cargadorDatos.cargarDatos();
+        Consultas.executeConsultas();
 
-        Consultas consulta = new Consultas(session);
-        consulta.executeConsultas();
+        Modificaciones.executeModifications();
 
-        Modificaciones modificaciones = new Modificaciones(session);
-        modificaciones.executeModifications();
-
-        session.getTransaction().commit();
-        session.close();
+        HibernateUtil.closeSession();
 
     }
 }

@@ -5,13 +5,7 @@ import java.util.*;
 
 public class Consultas {
 
-    static Session session;
-
-    Consultas(Session session) {
-        this.session = session;
-    }
-
-    public void executeConsultas() {
+    public static void executeConsultas() {
 
         listarSedes();
 
@@ -58,26 +52,26 @@ public class Consultas {
 
     }
 
-    private void obtenerEmpleadoConDni(String dni) {
+    private static void obtenerEmpleadoConDni(String dni) {
         String queryNativaEmpleadoConDNI = "select * from empleado where dni = :dni";
-        Query<Empleado> empleadoConDni = session.createNativeQuery(queryNativaEmpleadoConDNI, Empleado.class);
+        Query<Empleado> empleadoConDni = HibernateUtil.getSession().createNativeQuery(queryNativaEmpleadoConDNI, Empleado.class);
         empleadoConDni.setParameter("dni", dni);
 
         Empleado empleado = empleadoConDni.getSingleResult();
         System.out.println("Empleado con dni " + dni + ": " + empleado);
     }
 
-    private void obtenerNumeroDeDepartamentosConNombre(String nombreDepartamento) {
+    private static void obtenerNumeroDeDepartamentosConNombre(String nombreDepartamento) {
         String countQueryDepartamentoByNombre = "select count(*) from Departamento d where nombreDepartamento = :nombre";
-        Query<Long> numeroDepartamentos = session.createQuery(countQueryDepartamentoByNombre, Long.class);
+        Query<Long> numeroDepartamentos = HibernateUtil.getSession().createQuery(countQueryDepartamentoByNombre, Long.class);
         numeroDepartamentos.setParameter("nombre", nombreDepartamento);
         Long numero = numeroDepartamentos.getSingleResult();
         System.out.println("número de departamentos con nombre " + nombreDepartamento + ": " + numero);
     }
 
-    private void obtenerNumeroEmpleadosPorProyectoYSede() {
+    private static void obtenerNumeroEmpleadosPorProyectoYSede() {
         String countQuery = "select  s,count(e.dni),(select count(*) from Proyecto proy) from Sede s inner join s.departamentos d inner join d.empleados e group by s.idSede";
-        List<Object[]> lista = session.createQuery(countQuery, Object[].class).list();
+        List<Object[]> lista = HibernateUtil.getSession().createQuery(countQuery, Object[].class).list();
         for (Object[] row: lista) {
             Sede sede = (Sede) row[0];
             Number numeroEmpleados = (Number) row[1];
@@ -87,23 +81,23 @@ public class Consultas {
         }
     }
 
-    private void listarProyectos() {
-        List<Proyecto> proyectos = session.createQuery("select p from Proyecto p", Proyecto.class).list();
+    private static void listarProyectos() {
+        List<Proyecto> proyectos = HibernateUtil.getSession().createQuery("select p from Proyecto p", Proyecto.class).list();
         System.out.println("Listado de proyectos: " + proyectos);
     }
 
-    private void listarEmpleados() {
-        List<Empleado> empleados = session.createQuery("select e from Empleado e", Empleado.class).list();
+    private static void listarEmpleados() {
+        List<Empleado> empleados = HibernateUtil.getSession().createQuery("select e from Empleado e", Empleado.class).list();
         System.out.println("Lsitado de empleados: " + empleados);
     }
 
-    private void listarDepartamentos() {
-        List<Departamento> departamentos = session.createQuery("select d from Departamento d", Departamento.class).list();
+    private static void listarDepartamentos() {
+        List<Departamento> departamentos = HibernateUtil.getSession().createQuery("select d from Departamento d", Departamento.class).list();
         System.out.println("Lsitado de departamentos: " + departamentos);
     }
 
-    private void listarSedes() {
-        List<Sede> sedes = session.createQuery("select s from Sede s", Sede.class).list();
+    private static void listarSedes() {
+        List<Sede> sedes = HibernateUtil.getSession().createQuery("select s from Sede s", Sede.class).list();
         System.out.println("Lsitado de sedes: " + sedes);
     }
 

@@ -12,17 +12,16 @@ public class CargadorDatos {
 
     Session session;
 
-    CargadorDatos(Session session){
-        this.session = session;
-    }
-
-    public void cargarDatos() throws ParseException {
+    public static void cargarDatos() throws ParseException {
 
         saveDataSede("sede1", "10000000");
         saveDataSede("sede2", "20000000");
+
+        HibernateUtil.commit();
     }
 
-    private void saveDataSede(String nombreSede, String prefixDNI) throws ParseException {
+    private static void saveDataSede(String nombreSede, String prefixDNI) throws ParseException {
+
         Sede sede1 = new Sede(nombreSede);
         Proyecto proyecto1 = new Proyecto(toDate("2020-01-11"), toDate("2020-02-12"), "proyecto1"+nombreSede, Collections.singleton(sede1));
         Proyecto proyecto2 = new Proyecto(toDate("2020-01-12"), toDate("2020-03-12"), "proyecto2"+nombreSede, Collections.singleton(sede1));
@@ -94,10 +93,10 @@ public class CargadorDatos {
 
         sede1.setDepartamentos(new HashSet<>(Arrays.asList(departamento1, departamento2, departamento3)));
 
-        session.save(sede1);
+        HibernateUtil.getSession().save(sede1);
     }
 
-    public Date toDate(String s) throws ParseException {
+    public static Date toDate(String s) throws ParseException {
 
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return dateFormat.parse(s);
