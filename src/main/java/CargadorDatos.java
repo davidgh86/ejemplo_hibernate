@@ -91,6 +91,7 @@ public class CargadorDatos {
         sede1.setDepartamentos(new HashSet<>(Arrays.asList(departamento1, departamento2, departamento3)));
 
         HibernateUtil.getSession().save(sede1);
+        HibernateUtil.commit();
     }
 
     public static Date toDate(String s) throws ParseException {
