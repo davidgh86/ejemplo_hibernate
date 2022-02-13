@@ -1,7 +1,10 @@
-import entities.*;
-import org.hibernate.Session;
+import entities.Departamento;
+import entities.Empleado;
+import entities.Proyecto;
+import entities.Sede;
 import org.hibernate.query.Query;
-import java.util.*;
+
+import java.util.List;
 
 public class Consultas {
 

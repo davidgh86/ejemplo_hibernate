@@ -1,5 +1,4 @@
 import entities.*;
-import org.hibernate.Session;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -9,8 +8,6 @@ import java.util.Date;
 import java.util.HashSet;
 
 public class CargadorDatos {
-
-    Session session;
 
     public static void cargarDatos() throws ParseException {
 

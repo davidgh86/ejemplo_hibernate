@@ -1,5 +1,3 @@
-import org.hibernate.Session;
-
 import java.text.ParseException;
 
 public class App {
